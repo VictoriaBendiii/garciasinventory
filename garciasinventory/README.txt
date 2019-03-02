@@ -27,3 +27,24 @@ Icons(like default image for the employee pag naka sign-in na sya.)
 
 Database
 -Mike, Ron and beth
+
+=================================================================================================
+
+Deadline nito till March 10, 2019 Sunday 11:59pm.
+Let's make this a MANDATORY: 
+Fine sa mga hindi makakasubmit: 100 pesos + 50pesos per day na hindi nasusubmit.
+Another fine is: revoke yung weekly report 
+
+#2 Tasks
+Integration (Admin and SubAdmin modules)
+-Steven, Jez, Mike, Bendi, Ron
+
+Integration (Database, Background images and HTML's)
+-Mike, Ron, Beth, Bendi
+
+Push Notification
+-javs
+
+Documentation (document revision and continuation of chapters)
+-Cocs
+
