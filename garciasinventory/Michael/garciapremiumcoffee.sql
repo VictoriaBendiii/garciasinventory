@@ -1,29 +1,36 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: garciapremiumcoffee
--- ------------------------------------------------------
--- Server version	5.7.19
+-- Host: 127.0.0.1:3306
+-- Generation Time: Mar 03, 2019 at 08:58 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.1.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `garciapremiumcoffee`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `accounts`
 --
 
 DROP TABLE IF EXISTS `accounts`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `accounts` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `accounts` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `accountid` int(15) NOT NULL,
   `username` varchar(201) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(201) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -35,53 +42,48 @@ CREATE TABLE `accounts` (
   PRIMARY KEY (`idnumber`),
   UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `accounts`
 --
 
-LOCK TABLES `accounts` WRITE;
-/*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
-INSERT INTO `accounts` VALUES (1,1,'admin','admin','Admin','AD01','2019-02-28 23:12:22','2019-02-28 23:12:22',NULL),(2,2,'subadmin','subadmin','Sub-admin','SA01','2019-03-01 00:33:18','2019-03-01 00:33:18',NULL),(3,2,'subadmin2','subadmin2','Sub-admin','SA02','2019-03-01 00:40:21','2019-03-01 00:40:21',NULL);
-/*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `accounts` (`idnumber`, `accountid`, `username`, `password`, `user_type`, `employeeid`, `created`, `updated`, `deleted`) VALUES
+(1, 1, 'admin', 'admin', 'Admin', 'AD01', '2019-02-28 23:12:22', '2019-02-28 23:12:22', NULL),
+(2, 2, 'subadmin', 'subadmin', 'Sub-admin', 'SA01', '2019-03-01 00:33:18', '2019-03-01 00:33:18', NULL),
+(3, 2, 'subadmin2', 'subadmin2', 'Sub-admin', 'SA02', '2019-03-01 00:40:21', '2019-03-01 00:40:21', NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `branch`
 --
 
 DROP TABLE IF EXISTS `branch`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `branch` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `branch` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `branchid` int(15) NOT NULL,
   `branch_address` varchar(201) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idnumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `branch`
 --
 
-LOCK TABLES `branch` WRITE;
-/*!40000 ALTER TABLE `branch` DISABLE KEYS */;
-INSERT INTO `branch` VALUES (1,1,'Public Market Baguio City'),(2,2,'Porta Vaga Session Road Baguio City');
-/*!40000 ALTER TABLE `branch` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `branch` (`idnumber`, `branchid`, `branch_address`) VALUES
+(1, 1, 'Public Market Baguio City'),
+(2, 2, 'Porta Vaga Session Road Baguio City');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `delivery`
 --
 
 DROP TABLE IF EXISTS `delivery`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `delivery` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `deliveryid` int(15) unsigned NOT NULL,
+CREATE TABLE IF NOT EXISTS `delivery` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `deliveryid` int(15) UNSIGNED NOT NULL,
   `delivery_transaction` int(15) DEFAULT NULL,
   `productid` int(15) NOT NULL,
   `quantity` double(10,2) NOT NULL,
@@ -89,27 +91,24 @@ CREATE TABLE `delivery` (
   `updated` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idnumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `delivery`
 --
 
-LOCK TABLES `delivery` WRITE;
-/*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
-INSERT INTO `delivery` VALUES (3,1,1,1,130.00,'2019-03-01 00:33:33','2019-03-01 00:33:33'),(4,2,1,2,500.00,'2019-03-01 00:34:03','2019-03-01 00:34:03');
-/*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `delivery` (`idnumber`, `deliveryid`, `delivery_transaction`, `productid`, `quantity`, `created`, `updated`) VALUES
+(1, 1, 1, 1, 130.00, '2019-03-01 00:33:33', '2019-03-01 00:33:33'),
+(2, 2, 1, 2, 500.00, '2019-03-01 00:34:03', '2019-03-01 00:34:03');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `employee`
 --
 
 DROP TABLE IF EXISTS `employee`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `employee` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `employee` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `employeeid` varchar(201) COLLATE utf8mb4_unicode_ci NOT NULL,
   `firstname` varchar(201) COLLATE utf8mb4_unicode_ci NOT NULL,
   `middlename` varchar(201) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -123,27 +122,25 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`idnumber`),
   UNIQUE KEY `contact_number_UNIQUE` (`contact_number`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `employee`
 --
 
-LOCK TABLES `employee` WRITE;
-/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (3,'AD01','Eli','Angel','Garcia','0123456','garcia@gmail.com','2019-03-01 05:06:08','2019-03-01 05:06:08',NULL,1),(4,'SA01','Steven','B','Mangati','01234567','steven@gmail.com','2019-03-01 06:55:33','2019-03-01 06:55:33',NULL,2),(5,'SA02','Michael','V','Pinto','0917000000','michael@gmail.com','2019-03-01 07:01:31','2019-03-01 07:01:31',NULL,2);
-/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `employee` (`idnumber`, `employeeid`, `firstname`, `middlename`, `lastname`, `contact_number`, `email`, `created_at`, `update`, `deleted`, `branchid`) VALUES
+(1, 'AD01', 'Eli', 'Angel', 'Garcia', '0123456', 'garcia@gmail.com', '2019-03-01 05:06:08', '2019-03-01 05:06:08', NULL, 1),
+(2, 'SA01', 'Steven', 'B', 'Mangati', '01234567', 'steven@gmail.com', '2019-03-01 06:55:33', '2019-03-01 06:55:33', NULL, 2),
+(3, 'SA02', 'Michael', 'V', 'Pinto', '0917000000', 'michael@gmail.com', '2019-03-01 07:01:31', '2019-03-01 07:01:31', NULL, 2);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `orders`
 --
 
 DROP TABLE IF EXISTS `orders`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `orders` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `orders` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `orderid` int(15) NOT NULL,
   `supplierid` int(15) NOT NULL,
   `productid` int(15) NOT NULL,
@@ -153,27 +150,24 @@ CREATE TABLE `orders` (
   `updated` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idnumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `orders`
 --
 
-LOCK TABLES `orders` WRITE;
-/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,1,3,2,300.00,1,'2019-03-01 00:03:05','2019-03-01 00:03:05'),(2,1,3,1,600.00,1,'2019-03-01 00:04:20','2019-03-01 00:04:20');
-/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `orders` (`idnumber`, `orderid`, `supplierid`, `productid`, `quantity`, `delivery_transaction`, `created`, `updated`) VALUES
+(1, 1, 3, 2, 300.00, 1, '2019-03-01 00:03:05', '2019-03-01 00:03:05'),
+(2, 1, 3, 1, 600.00, 1, '2019-03-01 00:04:20', '2019-03-01 00:04:20');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `products`
 --
 
 DROP TABLE IF EXISTS `products`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `products` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `products` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `productid` int(15) DEFAULT NULL,
   `name` varchar(201) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` blob,
@@ -182,28 +176,42 @@ CREATE TABLE `products` (
   `date_added` timestamp NOT NULL DEFAULT '2019-02-28 23:00:00',
   `date_deleted` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idnumber`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-LOCK TABLES `products` WRITE;
-/*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (3,1,'Benguet',NULL,NULL,130.00,'2019-04-01 01:39:57',NULL),(4,2,'Barako',NULL,NULL,160.00,'2019-04-01 01:40:01',NULL);
-/*!40000 ALTER TABLE `products` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `products` (`idnumber`, `productid`, `name`, `image`, `description`, `quantity`, `date_added`, `date_deleted`) VALUES
+(1, 1, 'Benguet', NULL, NULL, 100.00, '2019-04-01 01:39:57', NULL),
+(2, 2, 'Barako', NULL, NULL, 160.00, '2019-04-01 01:40:01', NULL),
+(3, 3, 'Premium Barako Excesla', NULL, NULL, 120.65, '2019-03-03 07:25:00', NULL),
+(4, 4, 'Sagada Dark', NULL, NULL, 50.23, '2019-03-03 07:26:00', NULL),
+(5, 5, 'Sagada Medium', NULL, NULL, 223.33, '2019-03-03 07:27:21', NULL),
+(6, 6, 'Arabica Medium Blend', NULL, NULL, 80.50, '2019-03-03 07:28:02', NULL),
+(7, 7, 'House Blend Arabica', NULL, NULL, 133.62, '2019-03-03 07:33:41', NULL),
+(8, 8, 'Italian Espresso', NULL, NULL, 9.63, '2019-03-03 07:34:01', NULL),
+(9, 9, 'Kalinga Medium', NULL, NULL, 11.80, '2019-03-03 07:34:49', NULL),
+(10, 10, 'Kalinga Dark', NULL, NULL, 27.00, '2019-03-03 07:35:03', NULL),
+(11, 11, 'Hazelnut', NULL, NULL, 23.45, '2019-03-03 07:36:22', NULL),
+(12, 12, 'Mocha', NULL, NULL, 0.72, '2019-03-03 07:37:12', NULL),
+(13, 13, 'Hazelnut-Vanilla', NULL, NULL, 7.25, '2019-03-03 07:38:03', NULL),
+(14, 14, 'Vanilla', NULL, NULL, 8.62, '2019-03-03 07:38:42', NULL),
+(15, 15, 'Butterscotch', NULL, NULL, 200.50, '2019-03-03 07:39:10', NULL),
+(16, 16, 'Macadamia', NULL, NULL, 2.00, '2019-03-03 07:39:49', NULL),
+(17, 17, 'Cinnamon Nut', NULL, NULL, 3.25, '2019-03-03 07:40:00', NULL),
+(18, 18, 'Irish Cream', NULL, NULL, 7.25, '2019-03-03 07:40:21', NULL),
+(19, 19, 'Caramel', NULL, NULL, 200.50, '2019-03-03 07:41:05', NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `reconciliation`
 --
 
 DROP TABLE IF EXISTS `reconciliation`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `reconciliation` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `reconciliation` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `reconciliationid` int(15) NOT NULL,
   `employeeid` varchar(201) COLLATE utf8mb4_unicode_ci NOT NULL,
   `productid` int(15) NOT NULL,
@@ -215,27 +223,23 @@ CREATE TABLE `reconciliation` (
   `remarks` varchar(201) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`idnumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `reconciliation`
 --
 
-LOCK TABLES `reconciliation` WRITE;
-/*!40000 ALTER TABLE `reconciliation` DISABLE KEYS */;
-INSERT INTO `reconciliation` VALUES (1,1,'SA01',1,455.00,456.00,'2019-03-01','21:01:01','Not Match','Adjusted');
-/*!40000 ALTER TABLE `reconciliation` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `reconciliation` (`idnumber`, `reconciliationid`, `employeeid`, `productid`, `logical_count`, `physical_count`, `date`, `time`, `status`, `remarks`) VALUES
+(1, 1, 'SA01', 1, 455.00, 456.00, '2019-03-01', '21:01:01', 'Not Match', 'Adjusted');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `solditem`
 --
 
 DROP TABLE IF EXISTS `solditem`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `solditem` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `solditem` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `solditemid` int(15) NOT NULL,
   `productid` int(15) NOT NULL,
   `quantity` double(10,2) NOT NULL,
@@ -243,27 +247,25 @@ CREATE TABLE `solditem` (
   `time` time NOT NULL,
   PRIMARY KEY (`idnumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `solditem`
 --
 
-LOCK TABLES `solditem` WRITE;
-/*!40000 ALTER TABLE `solditem` DISABLE KEYS */;
-INSERT INTO `solditem` VALUES (1,1,2,20.00,'2019-04-01','09:33:03'),(2,1,1,10.00,'2019-04-01','09:33:03'),(3,2,1,3.00,'2019-04-01','09:50:03');
-/*!40000 ALTER TABLE `solditem` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `solditem` (`idnumber`, `solditemid`, `productid`, `quantity`, `date`, `time`) VALUES
+(1, 1, 2, 20.00, '2019-04-01', '09:33:03'),
+(2, 1, 1, 10.00, '2019-04-01', '09:33:03'),
+(3, 2, 1, 3.00, '2019-04-01', '09:50:03');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `stock`
 --
 
 DROP TABLE IF EXISTS `stock`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `stock` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `stock` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `stockid` int(15) NOT NULL,
   `productid` int(15) NOT NULL,
   `quantity` double(10,2) NOT NULL,
@@ -275,27 +277,24 @@ CREATE TABLE `stock` (
   `deleted` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idnumber`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `stock`
 --
 
-LOCK TABLES `stock` WRITE;
-/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
-INSERT INTO `stock` VALUES (1,1,1,456.00,300.00,55.00,1,'2017-03-01 12:28:34','2017-03-01 14:33:02',NULL),(2,1,2,621.00,200.00,69.00,1,'2017-03-01 12:28:34','2017-03-01 12:28:34',NULL);
-/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `stock` (`idnumber`, `stockid`, `productid`, `quantity`, `stockin`, `stockout`, `branchid`, `created`, `updated`, `deleted`) VALUES
+(1, 1, 1, 456.00, 300.00, 55.00, 1, '2017-03-01 12:28:34', '2017-03-01 14:33:02', NULL),
+(2, 1, 2, 621.00, 200.00, 69.00, 1, '2017-03-01 12:28:34', '2017-03-01 12:28:34', NULL);
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `supplier`
 --
 
 DROP TABLE IF EXISTS `supplier`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `supplier` (
-  `idnumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `supplier` (
+  `idnumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `supplierid` int(15) NOT NULL,
   `supplier_name` varchar(201) COLLATE utf8mb4_unicode_ci NOT NULL,
   `supplier_contact_person` varchar(201) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -307,25 +306,15 @@ CREATE TABLE `supplier` (
   PRIMARY KEY (`idnumber`),
   UNIQUE KEY `supplierid_UNIQUE` (`supplierid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `supplier`
 --
 
-LOCK TABLES `supplier` WRITE;
-/*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
-INSERT INTO `supplier` VALUES (1,1,'Garcia\'s Farm','Eli','012345','Kamog Sablan Baguio City','2019-02-28 23:33:02',NULL,NULL);
-/*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+INSERT INTO `supplier` (`idnumber`, `supplierid`, `supplier_name`, `supplier_contact_person`, `contact_number`, `address`, `created`, `updated`, `deleted`) VALUES
+(1, 1, 'Garcia\'s Farm', 'Eli', '012345', 'Kamog Sablan Baguio City', '2019-02-28 23:33:02', NULL, NULL);
+COMMIT;
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-03-02 15:06:36
