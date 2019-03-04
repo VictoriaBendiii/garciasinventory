@@ -1,0 +1,165 @@
+*{
+
+    font-family: serif;
+
+    box-sizing: border-box;
+}
+
+
+body{
+   
+    	background-image: url("../image/Log-in.jpg");
+
+    	background-repeat: no-repeat;
+
+    	font-family: Verdana, sans-serif;
+
+	background-size:cover;    
+	margin:0;
+
+}
+
+.header{
+
+    width: auto;
+
+    padding: 30px;
+
+    background: transparent;
+
+    color: white;
+
+}
+
+.header-text{
+
+  text-align: center;
+
+  font-size: 40px;
+}
+
+p{
+    color:white;
+
+    font-family:  "Arial Black", Gadget, sans-serif;
+
+    font-size: 20px;
+
+
+    
+}
+
+.hed{
+
+  float: right;
+
+}
+
+
+.button{
+
+      -moz-box-shadow: 3px 4px 3px 0px #899599;
+
+  -webkit-box-shadow: 3px 4px 3px 0px #899599;
+
+  box-shadow: 3px 4px 3px 0px #899599;
+
+  background-color:transparent;
+
+  -moz-border-radius:30px;
+
+  -webkit-border-radius:30px;
+
+  border-radius:30px;
+
+  border:1px solid #d6bcd6;
+
+  display:inline-block;
+
+  cursor:pointer;
+
+  color:transparent;
+
+  font-family:Trebuchet MS;
+
+  font-size:28px;
+
+  padding:13px 34px;
+
+  text-align: center;
+
+  text-decoration:none;
+
+  text-shadow:0px 1px 0px #e1e2ed;
+
+}
+
+.button:hover {
+  background-color:transparent;
+}
+.button:active {
+  position:relative;
+  top:1px;
+}
+
+
+.container{
+  margin:1% auto;
+  width: 200px;
+  height: 300px;
+  position: relative;
+}
+#slider{
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  transform-style: preserve-3d;
+  animation: rotation 60s infinite linear;
+}
+
+#slider figure{
+  display: block;
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  background: black;
+  overflow: hidden;
+  border: solid 5px white;
+        text-align: center;
+}
+#slider figure:nth-child(1){
+    transform: rotateY(0deg) translateZ(288px);
+}
+#slider figure:nth-child(2) {
+    transform: rotateY(60deg) translateZ(288px);
+}
+#slider figure:nth-child(3) {
+    transform: rotateY(120deg) translateZ(288px);
+}
+#slider figure:nth-child(4) {
+    transform: rotateY(180deg) translateZ(288px);
+}
+#slider figure:nth-child(5) {
+    transform: rotateY(240deg) translateZ(288px);
+}
+#slider figure:nth-child(6) {
+    transform: rotateY(300deg) translateZ(288px);
+}
+
+
+img{
+  -webkit-filter: grayscale(0);
+  cursor: pointer;
+  transition: all .5s ease;
+        transform:translate(-20%); 
+}
+
+
+@keyframes rotation{
+  from{
+    transform: rotateY(0deg);
+  }
+  to{
+    transform: rotateY(360deg);
+  }
+}
