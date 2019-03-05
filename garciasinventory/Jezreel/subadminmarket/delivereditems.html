@@ -25,7 +25,7 @@
                     <div class="sidebar-sticky">
                       <ul class="nav flex-column">
                         <li class="nav-item">
-                          <a class="nav-link active" href="index.html">
+                          <a class="nav-link" href="index.html">
                             <span data-feather="home"></span>
                             Dashboard <span class="sr-only"></span>
                           </a>
@@ -43,13 +43,13 @@
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="request.html">
+                          <a class="nav-link active" href="request.html">
                             <span data-feather="truck"></span>
                             Request
                           </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="customer.html">
+                          <a class="nav-link" href="customer.html">
                             <span data-feather="users"></span>
                             Customer
                           </a>
@@ -66,7 +66,7 @@
           
                   <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
-                      <h1 class="h2">Hi Sub Admin!</h1>
+                      <h1 class="h2">Request</h1>
                       <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group mr-2">
                           <button class="btn btn-sm btn-outline-secondary">Share</button>
@@ -78,35 +78,86 @@
                         </button>
                       </div>
                     </div>
-          
-                    <form>
-                      <div class="row">
-                        <div class="col-4">
-                          <label for="inputState">Product</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>Arabica</option>
-                            <option>Robusta</option>
-                          </select>
-                        </div>
-                        <div class="col-4">
-                          <label for="inputState">Quantity / Kg</label>
-                          <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>1</option>
-                            <option>2</option>
-                          </select>
-                        </div>
-                        <div class="col-4">
-                            <label for="inputState">Quantity / Kg</label>
-                          <button type="submit" class="btn btn-primary"><span data-feather="plus"></span></button>
-                          <button type="submit" class="btn btn-primary"><span data-feather="minus"></span></button>
-                          </select>
+
+                     <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                      Request Stock
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            asdasdasdas
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
                         </div>
                       </div>
-                    </form>
+                    </div>
 
                   </br>
+                  </br>
+
+                  <div class="btn-toolbar mb-2 mb-md-0">
+                    <div class="btn-group mr-2">
+                      <a href="request.html" class="btn btn-secondary btn-dark active" role="button" aria-pressed="true">Request from Porta</a>
+                    </div>
+                    <div class="btn-group mr-2">
+                      <a href="ordereditems.html" class="btn btn-secondary btn-dark active" role="button" aria-pressed="true">Ordered items</a>
+                    </div>
+                    <div class="btn-group mr-2">
+                      <a href="delivereditems.html" class="btn btn-secondary btn-dark active" role="button" aria-pressed="true">Delivered items</a>
+                    </div>
+                  </div>
+
+                  </br>
+                  </br>
+
+                  <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-sm">
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Date & Time</th>
+                          <th>From</th>
+                          <th>To</th>
+                          <th>Product</th>
+                          <th>Quantity</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                        </tr>
+                        <tr>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                          <td>data</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                   </main>
                 </div>
               </div>
